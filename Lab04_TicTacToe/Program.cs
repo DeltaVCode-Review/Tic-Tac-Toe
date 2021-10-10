@@ -14,26 +14,30 @@ namespace Lab04_TicTacToe
 
         static void StartGame()
         {
-            // TODO: Setup your game.
-
             // Create a new method that creates your players and instantiates the game class.
             Console.WriteLine("Player One, What is your name?");
             string pOneName = Console.ReadLine();
-
             Player playerOne = new Player();
             playerOne.Name = pOneName;
+            playerOne.Marker = "X";
+            playerOne.IsTurn = true;
+
 
             Console.WriteLine("Player Two, What is your name?");
             string pTwoName = Console.ReadLine();
-
             Player playerTwo = new Player();
             playerTwo.Name = pTwoName;
+            playerTwo.Marker = "O";
+            playerTwo.IsTurn = true;
 
             Console.WriteLine($"{pOneName} and {pTwoName}, let's begin.");
 
-            Game game = new(playerOne, playerTwo);
-            Game newGame = game;
+            Game newGame = new Game(playerOne, playerTwo);
 
+            while (newGame.Winner == null)
+            {
+                newGame.Play();
+            }
 
             // 
             if (newGame.Winner == playerOne)
@@ -48,9 +52,6 @@ namespace Lab04_TicTacToe
                 {
                 Console.WriteLine("Sorry. Looks like it was a draw.");
                 }
-
         }
-
-
     }
 }

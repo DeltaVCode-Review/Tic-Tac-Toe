@@ -52,7 +52,7 @@ namespace Lab04_TicTacToe.Classes
 		{
 			IsTurn = true;
 
-			Console.WriteLine($"{Name} it is your turn");
+			Console.WriteLine($"{Name} it is now your turn.");
 
 			Position position = GetPosition(board);
 
@@ -63,7 +63,6 @@ namespace Lab04_TicTacToe.Classes
 			else
 			{
 				Console.WriteLine("This space is already occupied, please choose another.");
-				IsTurn = true;
 			}
         }
     }

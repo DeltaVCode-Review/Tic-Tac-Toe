@@ -18,15 +18,15 @@ namespace Lab04_TicTacToe.Classes
 			PlayerOne = p1;
 			PlayerTwo = p2;
 			Board = new Board();
-		}
+        }
 
-		/// <summary>
-		/// Activate the Play of the game
-		/// </summary>
-		/// <returns>Winner</returns>
-		public Player Play()
+        /// <summary>
+        /// Activate the Play of the game
+        /// </summary>
+        /// <returns>Winner</returns>
+        public Player Play()
 		{
-			Board.DisplayBoard();
+            Board.DisplayBoard();
 
 			Player nextPlayer = NextPlayer();
 
@@ -37,10 +37,7 @@ namespace Lab04_TicTacToe.Classes
 			CheckForWinner(Board);
 
 			return Winner;
-
-
 		}
-
 
 		/// <summary>
 		/// Check if winner exists
@@ -66,8 +63,6 @@ namespace Lab04_TicTacToe.Classes
 				new[] {3,5,7}
 			};
 
-
-
 			// Given all the winning conditions, Determine the winning logic. 
 			for (int i = 0; i < winners.Length; i++)
 			{
@@ -79,24 +74,19 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached.
-
-				
 				if (a == b && b == c)
-                {
-                    if (a == "X")
-                    {
-                        Winner = PlayerOne;
-                    }
-                } else
-                {
-					Winner = PlayerTwo;
-					return true;
-				}
-            }
-
-			return false;
+				{
+					if (a == "X")
+					{
+						Winner = PlayerOne;
+					}
+					else
+					{
+						Winner = PlayerTwo;
+						return true;
+					}
+				}		
+            } return false;
 		}
 
 		/// <summary>
