@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    public class Player
+    class Player
     {
 		public string Name { get; set; }
 		/// <summary>
@@ -12,13 +12,13 @@ namespace Lab04_TicTacToe.Classes
 		/// </summary>
 		public string Marker { get; set; }
 
-		/// <summary>
-		/// Flag to determine if it is the user's turn
-		/// </summary>
-		public bool IsTurn { get; set; }
+        /// <summary>
+        /// Flag to determine if it is the user's turn
+        /// </summary>
+        public bool IsTurn { get; set; }
 
 
-		Position GetPosition(Board board)
+		public static Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
 			while (desiredCoordinate is null)
@@ -28,11 +28,9 @@ namespace Lab04_TicTacToe.Classes
 				desiredCoordinate = PositionForNumber(position);
 			}
 			return desiredCoordinate;
-
 		}
 
-
-		static Position PositionForNumber(int position)
+		public static Position PositionForNumber(int position)
 		{
 			switch (position)
 			{
@@ -49,7 +47,6 @@ namespace Lab04_TicTacToe.Classes
 				default: return null;
 			}
 		}
-
 	
 		public void TakeTurn(Board board)
 		{
@@ -65,7 +62,8 @@ namespace Lab04_TicTacToe.Classes
 			}
 			else
 			{
-				Console.WriteLine("This space is already occupied");
+				Console.WriteLine("This space is already occupied, please choose another.");
+				IsTurn = true;
 			}
         }
     }

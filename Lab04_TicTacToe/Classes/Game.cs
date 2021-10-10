@@ -4,18 +4,14 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	public class Game
+    class Game
 	{
 		public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
 		public Player Winner { get; set; }
 		public Board Board { get; set; }
 
-
-		/// <summary>
-		/// Require 2 players and a board to start a game. 
-		/// </summary>
-		/// <param name="p1">Player 1</param>
+		///<param name="p1">Player 1</param>
 		/// <param name="p2">Player 2</param>
 		public Game(Player p1, Player p2)
 		{
@@ -30,26 +26,19 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>Winner</returns>
 		public Player Play()
 		{
+			Board.DisplayBoard();
 
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+			Player nextPlayer = NextPlayer();
 
-            /*
-             * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
-             * 
-             * A few things to get you started:
-             * 
-            1. A turn consists of a player picking a position on the board with their designated marker
+			nextPlayer.TakeTurn(Board);
 
-            2. Display the board after every turn to show the most up to date state of the game
+			SwitchPlayer();
 
-            3. Once a Winner is determined, display the board one final time and return a winner
+			CheckForWinner(Board);
 
-            Few additional hints:
-                Be sure to keep track of the number of turns that have been taken to determine if a draw is required
-                and make sure that the game continues while there are unmarked spots on the board. 
+			return Winner;
 
-            Use any and all pre-existing methods in this program to help construct the method logic. 
-             */
+
 		}
 
 
@@ -62,17 +51,22 @@ namespace Lab04_TicTacToe.Classes
 		{
 			int[][] winners = new int[][]
 			{
+				//horizontal winners
 				new[] {1,2,3},
 				new[] {4,5,6},
 				new[] {7,8,9},
 
+				//vertical winners
 				new[] {1,4,7},
 				new[] {2,5,8},
 				new[] {3,6,9},
 
+				//diagonal winners
 				new[] {1,5,9},
 				new[] {3,5,7}
 			};
+
+
 
 			// Given all the winning conditions, Determine the winning logic. 
 			for (int i = 0; i < winners.Length; i++)
@@ -88,7 +82,19 @@ namespace Lab04_TicTacToe.Classes
 				// TODO:  Determine a winner has been reached. 
 				// return true if a winner has been reached.
 
-			}
+				
+				if (a == b && b == c)
+                {
+                    if (a == "X")
+                    {
+                        Winner = PlayerOne;
+                    }
+                } else
+                {
+					Winner = PlayerTwo;
+					return true;
+				}
+            }
 
 			return false;
 		}
@@ -110,8 +116,6 @@ namespace Lab04_TicTacToe.Classes
 			if (PlayerOne.IsTurn)
 			{ 
 				PlayerOne.IsTurn = false;
-
-              
 				PlayerTwo.IsTurn = true;
 			}
 			else
