@@ -35,9 +35,12 @@ namespace Lab04_TicTacToe
 
             Game newGame = new Game(playerOne, playerTwo);
 
-            while (newGame.Winner == null)
+            // Take up to 9 turns
+            for (int i = 1; i <= 9; i++)
             {
-                newGame.Play();
+                Player winner = newGame.Play();
+                if (winner != null)
+                    break;
             }
 
             // 
