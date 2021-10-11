@@ -34,7 +34,10 @@ namespace Lab04_TicTacToe.Classes
 
 			SwitchPlayer();
 
-			CheckForWinner(Board);
+			if (CheckForWinner(Board))
+            {
+				Winner = nextPlayer;
+            }
 
 			return Winner;
 		}
@@ -76,15 +79,7 @@ namespace Lab04_TicTacToe.Classes
 
 				if (a == b && b == c)
 				{
-					if (a == "X")
-					{
-						Winner = PlayerOne;
-					}
-					else
-					{
-						Winner = PlayerTwo;
-						return true;
-					}
+					return true;
 				}		
             } return false;
 		}
