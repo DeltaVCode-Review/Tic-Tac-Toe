@@ -9,7 +9,6 @@ namespace Lab04_TicTacToe.Classes
 		/// Tic Tac Toe Gameboard states
 		/// </summary>
 		///
-		public int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 		public string[,] GameBoard = new string[,]
 		{
@@ -20,17 +19,45 @@ namespace Lab04_TicTacToe.Classes
 
 		public void DisplayBoard()
         {
-			Console.WriteLine("__________________");
-			Console.WriteLine("|  {0}  |  {1}  |  {2} |", arr[0], arr[1], arr[2]);
-			Console.WriteLine("|________________|");
-			Console.WriteLine("|  {0}  |  {1}  |  {2} |", arr[3], arr[4], arr[5]);
-			Console.WriteLine("|________________|");
-			Console.WriteLine("|  {0}  |  {1}  |  {2} |", arr[6], arr[7], arr[8]);
-			Console.WriteLine("|________________|");
+			int[] board = new int[9];
+			board[0] = 0;
+			board[1] = 1;
+			board[2] = 0;
+			board[3] = 0;
+			board[4] = 0;
+			board[5] = 2;
+			board[6] = 0;
+			board[7] = 0;
+			board[8] = 0;
 
+            for (int i = 0; i < 9; i++)
+            {
+				//print the board
+				//Console.WriteLine($"Square {i} contains {board[i]}");
+
+				//print X or O for each square
+				// 0 is unoccupied, 1 is player one(X), 2 is player two (O).
+
+				if(board[i] == 0)
+                {
+					Console.Write("[_]");
+                }
+				if (board[i] == 1)
+				{
+					Console.Write("[X]");
+				}
+				if (board[i] == 2)
+				{
+					Console.Write("[O]");
+				}
+
+				//print a new line every third character
+				if (i == 2 || i == 5 || i == 8)
+                {
+					Console.WriteLine();
+                }
+			}
 		}
-
-		
 	}
 }
 
