@@ -30,7 +30,8 @@ namespace Lab04_TicTacToe
             playerTwo.Marker = "O";
             playerTwo.IsTurn = true;
 
-            Console.WriteLine($"{pOneName} and {pTwoName}, let's begin.");
+            Console.WriteLine($"Hello {pOneName} and {pTwoName}. Let's begin.");
+            Console.WriteLine($"{pOneName} will go first.");
 
             Game newGame = new Game(playerOne, playerTwo);
 

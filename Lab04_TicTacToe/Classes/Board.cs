@@ -11,53 +11,71 @@ namespace Lab04_TicTacToe.Classes
 		///
 
 		public string[,] GameBoard = new string[,]
-		{
-			{"1", "2", "3"},
-			{"4", "5", "6"},
-			{"7", "8", "9"},
+		{ // [0]  [1]  [2]  
+			{"1", "2", "3"}, //[0]
+			{"4", "5", "6"}, //[1]
+			{"7", "8", "9"}, //[2]
 		};
 
 		public void DisplayBoard()
         {
-			int[] board = new int[9];
-			board[0] = 0;
-			board[1] = 1;
-			board[2] = 0;
-			board[3] = 0;
-			board[4] = 0;
-			board[5] = 2;
-			board[6] = 0;
-			board[7] = 0;
-			board[8] = 0;
+            string one = GameBoard[0, 0];
+            string two = GameBoard[0, 1];
+            string three = GameBoard[0, 2];
 
-            for (int i = 0; i < 9; i++)
-            {
-				//print the board
-				//Console.WriteLine($"Square {i} contains {board[i]}");
+            Console.WriteLine($"{one}, {two}, {three}");
 
-				//print X or O for each square
-				// 0 is unoccupied, 1 is player one(X), 2 is player two (O).
+            string four = GameBoard[1, 0];
+            string five = GameBoard[1, 1];
+            string six = GameBoard[1, 2];
 
-				if(board[i] == 0)
-                {
-					Console.Write("[_]");
-                }
-				if (board[i] == 1)
-				{
-					Console.Write("[X]");
-				}
-				if (board[i] == 2)
-				{
-					Console.Write("[O]");
-				}
+            Console.WriteLine($"{four}, {five}, {six}");
 
-				//print a new line every third character
-				if (i == 2 || i == 5 || i == 8)
-                {
-					Console.WriteLine();
-                }
-			}
-		}
+            string seven = GameBoard[2, 0];
+            string eight = GameBoard[2, 1];
+            string nine = GameBoard[2, 2];
+
+            Console.WriteLine($"{seven}, {eight}, {nine}");
+
+
+
+
+            //Shad Sluiter method
+
+            //int[] GameBoard = new int[9];
+            //GameBoard[0] = 0;
+            //GameBoard[1] = 1;
+            //GameBoard[2] = 0;
+            //GameBoard[3] = 0;
+            //GameBoard[4] = 0;
+            //GameBoard[5] = 2;
+            //GameBoard[6] = 0;
+            //GameBoard[7] = 0;
+            //GameBoard[8] = 0;
+
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    //print X or O for each square
+            //    // 0 is unoccupied, 1 is player one(X), 2 is player two (O).
+            //    if (board[i] == 0)
+            //    {
+            //        Console.Write("[_]");
+            //    }
+            //    if (board[i] == 1)
+            //    {
+            //        Console.Write("[X]");
+            //    }
+            //    if (board[i] == 2)
+            //    {
+            //        Console.Write("[O]");
+            //    }
+            //    //print a new line every third character
+            //    if (i == 2 || i == 5 || i == 8)
+            //    {
+            //        Console.WriteLine();
+            //    }
+            //}
+        }
 	}
 }
 
