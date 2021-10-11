@@ -44,13 +44,9 @@ namespace Lab04_TicTacToe
             }
 
             // 
-            if (newGame.Winner == playerOne)
+            if (newGame.Winner != null)
                 {
-                Console.WriteLine($"Congratulations {pOneName}, you are the winner.");
-                }
-            else if (newGame.Winner == playerTwo)
-                {
-                Console.WriteLine($"Congratulations {pTwoName}, you are the winner.");
+                Console.WriteLine($"Congratulations {newGame.Winner}, you are the winner.");
                 }
             else if (newGame.Winner != playerOne && newGame.Winner != playerTwo)
                 {
