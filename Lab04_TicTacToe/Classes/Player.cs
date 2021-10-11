@@ -12,25 +12,23 @@ namespace Lab04_TicTacToe.Classes
 		/// </summary>
 		public string Marker { get; set; }
 
-		/// <summary>
-		/// Flag to determine if it is the user's turn
-		/// </summary>
-		public bool IsTurn { get; set; }
+        /// <summary>
+        /// Flag to determine if it is the user's turn
+        /// </summary>
+        public bool IsTurn { get; set; }
 
 
-		public Position GetPosition(Board board)
+		public static Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
 			while (desiredCoordinate is null)
 			{
-				Console.WriteLine("Please select a location");
+				Console.WriteLine("Please select a location, using its number.");
 				Int32.TryParse(Console.ReadLine(), out int position);
 				desiredCoordinate = PositionForNumber(position);
 			}
 			return desiredCoordinate;
-
 		}
-
 
 		public static Position PositionForNumber(int position)
 		{
@@ -49,13 +47,12 @@ namespace Lab04_TicTacToe.Classes
 				default: return null;
 			}
 		}
-
 	
 		public void TakeTurn(Board board)
 		{
 			IsTurn = true;
 
-			Console.WriteLine($"{Name} it is your turn");
+			Console.WriteLine($"{Name} it is now your turn.");
 
 			Position position = GetPosition(board);
 
@@ -65,8 +62,8 @@ namespace Lab04_TicTacToe.Classes
 			}
 			else
 			{
-				Console.WriteLine("This space is already occupied");
+				Console.WriteLine("This space is already occupied, please choose another.");
 			}
-		}
-	}
+        }
+    }
 }
